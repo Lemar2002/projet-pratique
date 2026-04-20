@@ -4,34 +4,53 @@ import { VscSearch } from "react-icons/vsc";
 import { useGlobalContext } from "../../customsHooks/contextAPI/APIcontext";
 
 export const MessagerieHeader = () => {
-  const { proprietaire } = useGlobalContext();
+  const { proprietaire, etatLumiere } = useGlobalContext();
   return (
-    <div className="bg-black flex text-white w-236 h-18 mt-2 rounded-xl justify-between px-2 items-center ">
+    <div
+      className={`flex  h-18 mt-2 rounded-xl justify-between px-2 items-center
+        lg:w-203
+        xl:w-250 ${
+          etatLumiere === true
+            ? `bg-white text-black`
+            : `bg-[#00203F] text-[#E6E9EC]`
+        }`}
+    >
       <form
         action=""
-        className="flex justify-between px-2  items-center bg-gray-200/20 gap-2 py-3 rounded-xl text-xs"
+        className="flex justify-between px-2  items-center  gap-2 py-3 rounded-xl text-xs border"
       >
         <VscSearch className="text-sm" />
         <input
-          className="text-white/60 px-4"
           type="text"
           placeholder="Search person or a type of command"
+          className={`px-4 ${
+            etatLumiere === true ? `text-black` : `text-white`
+          }`}
         />
-        <button
-          type="submit"
-          className="border px-2 bg-black text-xs ml-6  rounded-sm"
-        >
+        <button type="submit" className="border px-2  text-xs ml-6  rounded-sm">
           XF
         </button>
       </form>
       <div className="flex items-center gap-8">
-        <button className="text-sm bg-blue-600 text-white text-black px-6 py-2 rounded-sm font-bold">
+        <button
+          className={`text-sm text-black px-6 py-2 rounded-sm font-bold ${
+            etatLumiere === true ? `bg-[#36ecde]/60` : `bg-gray-100/20 `
+          } `}
+        >
           + Create
         </button>
-        <div className="text-sm bg-gray-100/20 flex w-10 rounded-full py-3 items-center justify-center">
+        <div
+          className={`text-xl flex px-1 rounded-full py-1 items-center justify-center ${
+            etatLumiere === true ? `bg-[#36ecde]/60` : `bg-gray-100/20 `
+          }`}
+        >
           <LuMessageCircle />
         </div>
-        <div className="text-sm bg-gray-100/20 flex w-10 rounded-full py-3 items-center justify-center">
+        <div
+          className={`text-xl flex px-1 rounded-full py-1 items-center justify-center ${
+            etatLumiere === true ? `bg-[#36ecde]/60` : `bg-gray-100/20 `
+          }`}
+        >
           <IoMdNotificationsOutline />
         </div>
 

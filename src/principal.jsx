@@ -11,7 +11,7 @@ import { useGlobalContext } from "./customsHooks/contextAPI/APIcontext";
 export const Principal = () => {
   const { etatLumiere } = useGlobalContext();
   return (
-    <div className={etatLumiere === true ? "bg-white" : "bg-black"}>
+    <div className={`${etatLumiere === true ? `bg-[#E6E9EC] ` : `bg-black`}`}>
       <Routes>
         <Route element={<DashboardLayout />}>
           <Route path="/" element={<Dashboard />} />

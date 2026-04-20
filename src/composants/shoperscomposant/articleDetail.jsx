@@ -7,6 +7,7 @@ export const ArticleDeta = () => {
     delecteElement,
     listeDesCommandes,
     chargerListeDesCommandes,
+    etatLumiere,
   } = useGlobalContext();
   //calcul le total des prix de facion brut
   const total = panier.reduce((acc, val) => {
@@ -38,9 +39,21 @@ export const ArticleDeta = () => {
   return (
     <form
       onClick={submit}
-      className="w-[26%] h-full flex px-2 py-2 flex-col gap-4  border rounded-xl bg-black text-white"
+      className={`h-full flex px-2 py-2 flex-col border rounded-xl
+        lg:w-40 lg:text-xs lg:gap-12
+        xl:w-90 xl:text-[20px] xl:gap-4  ${
+          etatLumiere === true
+            ? `bg-white text-black`
+            : `bg-[#00203F] text-[#E6E9EC]`
+        }`}
     >
-      <p className="font-bold">Detail Transaction</p>
+      <p
+        className={`font-bold px-2 py-1 rounded-sm  ${
+          etatLumiere === true ? `bg-[#E6E9EC]` : `bg-gray-200/20`
+        }`}
+      >
+        Detail Transaction
+      </p>
       <ul className="flex flex-col gap-2  h-[54%] mb-3 overflow-y-auto">
         {panier.map((element, index) => (
           <ArticleDetailindividuel
@@ -51,7 +64,14 @@ export const ArticleDeta = () => {
         ))}
       </ul>
       <div className="flex flex-col border px-2 gap-2 rounded-2xl">
-        <p className="font-bold text-[18px]"> Count and Send</p>
+        <p
+          className="font-bold 
+        lg:text-[14px]
+        xl:text-[18px]"
+        >
+          {" "}
+          Count and Send
+        </p>
         <div className="flex flex-col gap-1">
           <div className="flex justify-between ">
             <p> Total Articles</p>
@@ -74,7 +94,12 @@ export const ArticleDeta = () => {
             <p>Total Payment</p>
             <p> {totalFinal}$</p>
           </div>
-          <button type="submit" className="border rounded-full mb-1">
+          <button
+            type="submit"
+            className={`border rounded-full mb-1 ${
+              etatLumiere === true ? `bg-[#36ECDE]/60` : `bg-[#36ECDE]/60`
+            } `}
+          >
             Send to
           </button>
         </div>

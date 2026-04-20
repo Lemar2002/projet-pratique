@@ -39,17 +39,30 @@ export const Messagerie = () => {
   console.log(texteEcrit);
 
   //
+  const { etatLumiere } = useGlobalContext();
   return (
-    <div className="pt-5 flex flex-col gap-6 bg-black text-white border h-full w-full rounded-xl">
+    <div
+      className={`pt-5 flex flex-col gap-6 border h-full rounded-xl
+        lg:w-full
+        xl:w-full ${
+          etatLumiere === true
+            ? `bg-white text-black`
+            : `bg-[#00203F] text-[#E6E9EC]`
+        }`}
+    >
       {clientDiscussion.length === 0 ? (
         <div className="text-center flex flex-col items-center  h-full pt-[40%]">
-          <p className="border px-6 py-1 font-bold shadow-xl bg-white/10 rounded-sm">
+          <p className="border px-6 py-1 font-bold shadow-xl rounded-sm">
             Cliquez sur un utlisateur pour ouvrir une discussion...
           </p>
         </div>
       ) : (
         <div>
-          <div className="flex items-center justify-between px-6 ">
+          <div
+            className={`flex items-center justify-between px-6 py-2 rounded-xl mx-1 ${
+              etatLumiere === true ? `bg-[#E6E9EC]` : `bg-gray-200/20`
+            }`}
+          >
             <div className=" flex items-center gap-4  ">
               <div className="w-16 h-16 rounded-full border">
                 <img
@@ -64,10 +77,18 @@ export const Messagerie = () => {
               </div>
             </div>
             <div className="font-bold flex gap-4 h-8 items-center">
-              <button className="flex items-center gap-2 border border-white/50 px-3 py-1 rounded-sm ">
+              <button
+                className={`flex items-center gap-2 border  px-3 py-1 rounded-sm ${
+                  etatLumiere === true ? `bg-[#36ecde]/60` : `bg-gray-100/20 `
+                } `}
+              >
                 Follow +
               </button>
-              <button className="flex items-center gap-2 border border-white/50 px-3 py-1 rounded-sm ">
+              <button
+                className={`flex items-center gap-2 border  px-3 py-1 rounded-sm ${
+                  etatLumiere === true ? `bg-[#36ecde]/60` : `bg-gray-100/20 `
+                }`}
+              >
                 <p>Message</p> <LuMessageCircle />
               </button>
             </div>
@@ -118,7 +139,9 @@ export const Messagerie = () => {
                 </div>
                 <button
                   type="submit"
-                  className="px-2  rounded-sm mr-2 bg-blue-600 text-white"
+                  className={`px-2  rounded-sm mr-2   ${
+                    etatLumiere === true ? `bg-[#36ecde]/60` : `bg-gray-100/20 `
+                  }`}
                 >
                   Send
                 </button>
@@ -133,11 +156,11 @@ export const Messagerie = () => {
             </form>
           </div>
           <div className="flex flex-col gap-2 px-6  ">
-            <div className="flex items-center gap-3 border-b border-white/30 pb-4 mt-1 ">
-              <CgMail className="text-2xl text-white/80" />
+            <div className="flex items-center gap-3 border-b pb-4 mt-1 ">
+              <CgMail className="text-2xl " />
               <p>{clientDiscussion.email}</p>
             </div>
-            <div className="border-b border-white/30 pt-3 pb-5 flex gap-8 text-xl text-white/80">
+            <div className="border-b pt-3 pb-5 flex gap-8 text-xl ">
               <a
                 href={`http://www.twitter.com/${clientDiscussion.conversation[0].twitter}`}
                 target="_blank"
@@ -168,7 +191,7 @@ export const Messagerie = () => {
               </a>
             </div>
             <div className=" flex items-center gap-3 ">
-              <IoMdLink className="text-2xl text-white/60" />
+              <IoMdLink className="text-2xl " />
               <a
                 href={`http://${clientDiscussion.conversation[0].siteWeb} `}
                 target="_blank"
@@ -179,7 +202,7 @@ export const Messagerie = () => {
             </div>
 
             <div className="flex flex-col">
-              <div className="border-b border-white/30 py-3 flex justify-between pr-10">
+              <div className="border-b py-3 flex justify-between pr-10">
                 <div>
                   <p>Product</p>
                 </div>
@@ -198,16 +221,20 @@ export const Messagerie = () => {
                       </div>
                       <div className="flex flex-col px-3">
                         <p className="text-bold">Product title</p>
-                        <p className="text-xs text-white/60">
-                          ui.net/produc/product-link
-                        </p>
+                        <p className="text-xs ">ui.net/produc/product-link</p>
                       </div>
                     </div>
                     <div className="flex gap-18 items-center">
-                      <p className="border px-3 text-sm py-1 rounded-sm bg-green-200 text-black">
+                      <p
+                        className={`border px-3 text-sm py-1 rounded-sm ${
+                          etatLumiere === true
+                            ? `bg-[#36ecde]/60`
+                            : `bg-gray-100/20 `
+                        }`}
+                      >
                         $64.00
                       </p>
-                      <p className="text-xs text-white/80">April 9,2021</p>
+                      <p className="text-xs ">April 9,2021</p>
                     </div>
                   </div>
                 </li>
@@ -219,16 +246,20 @@ export const Messagerie = () => {
                       </div>
                       <div className="flex flex-col px-3">
                         <p className="text-bold">Product title</p>
-                        <p className="text-xs text-white/60">
-                          ui.net/produc/product-link
-                        </p>
+                        <p className="text-xs ">ui.net/produc/product-link</p>
                       </div>
                     </div>
                     <div className="flex gap-18 items-center">
-                      <p className="border px-3 text-sm py-1 rounded-sm bg-green-200 text-black">
+                      <p
+                        className={`border px-3 text-sm py-1 rounded-sm ${
+                          etatLumiere === true
+                            ? `bg-[#36ecde]/60`
+                            : `bg-gray-100/20 `
+                        }`}
+                      >
                         $64.00
                       </p>
-                      <p className="text-xs text-white/80">April 9,2021</p>
+                      <p className="text-xs ">April 9,2021</p>
                     </div>
                   </div>
                 </li>

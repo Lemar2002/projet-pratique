@@ -6,13 +6,25 @@ import { Products } from "../../composants/products/products";
 
 export const Dashboard = () => {
   return (
-    <div className="flex gap-2 h-screen  mt-1">
-      <div className="flex flex-col gap-1 h-screen">
+    <div
+      className="
+      lg:gap-2 lg:flex  lg:h-screen lg:mt-1 lg:mx-auto lg:w-full
+      xl:gap-2 xl:flex  xl:h-screen xl:mt-1 xl:mx-auto xl:w-full"
+    >
+      <div
+        className="
+      lg:flex lg:flex-col lg:gap-2 lg:h-screen
+       xl:flex xl:flex-col xl:gap-2 xl:h-screen"
+      >
         <Header />
         <Overview />
         <Products />
       </div>
-      <div className="flex flex-col gap-1">
+      <div
+        className="
+      lg:flex lg:flex-col lg:gap-1
+      xl:flex xl:flex-col xl:gap-1"
+      >
         <Devices />
         <Popular />
       </div>

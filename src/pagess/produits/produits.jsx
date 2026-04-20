@@ -7,7 +7,7 @@ import { Products } from "../../composants/products/products";
 export const Produits = () => {
   return (
     <div className="flex gap-2 h-screen  mt-1">
-      <div className="flex flex-col gap-1 h-screen">
+      <div className="flex flex-col gap-2 h-screen">
         <OverviewHeader />
         <Overview />
         <Products />

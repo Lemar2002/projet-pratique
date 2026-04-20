@@ -1,10 +1,24 @@
 import { useGlobalContext } from "../../customsHooks/contextAPI/APIcontext";
 
 export const Utilisateurs = () => {
-  const { clients, ouvrirDiscussion } = useGlobalContext();
+  const { clients, ouvrirDiscussion, etatLumiere } = useGlobalContext();
   return (
-    <div className=" px-2 border bg-black text-white h-155 w-90 rounded-xl flex flex-col gap-2">
-      <p className=" pt-3 mb-4 border-b  text-center">Utilisateurs</p>
+    <div
+      className={`px-2 border  h-155 w-90 rounded-xl flex flex-col gap-2 
+        lg:w-70
+        xl:w-90 ${
+          etatLumiere === true
+            ? `bg-white text-black`
+            : `bg-[#00203F] text-[#E6E9EC]`
+        }`}
+    >
+      <p
+        className={`pt-1 mt-1 rounded-xl mb-4 border-b  text-center text-2xl ${
+          etatLumiere === true ? `bg-[#E6E9EC]` : `bg-gray-200/20`
+        }`}
+      >
+        Utilisateurs
+      </p>
       <ul className="h-full overflow-y-auto">
         {clients.map((client, indic) => (
           <li
@@ -12,7 +26,7 @@ export const Utilisateurs = () => {
               ouvrirDiscussion(client);
             }}
             key={indic}
-            className=" flex items-center gap-4 border-b pb-4 border-white/50 mb-2 "
+            className=" flex items-center gap-4 border-b pb-4  mb-2 "
           >
             <div className="w-12 h-12 rounded-full border">
               <img

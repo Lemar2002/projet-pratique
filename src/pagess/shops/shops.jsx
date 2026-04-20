@@ -4,11 +4,18 @@ import { ShopHead } from "../../composants/shoperscomposant/shopHeader";
 
 export const Shops = () => {
   return (
-    <div className="w-240 flex flex-col gap-2 h-screen ">
+    <div
+      className=" flex flex-col gap-2 h-screen 
+    xl:w-250"
+    >
       <div className="flex mt-1">
         <ShopHead />
       </div>
-      <div className="flex gap-2 h-160">
+      <div
+        className="flex  h-160
+      lg:gap-2
+      xl:gap-3"
+      >
         <ShopArticles />
         <ArticleDeta />
       </div>

@@ -1,7 +1,9 @@
+import { Settings } from "../../composants/promote/settings";
+
 export const Promotes = () => {
   return (
     <div>
-      <div>Promote</div>
+      <Settings />
     </div>
   );
 };
